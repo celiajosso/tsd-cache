@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.redis.core.RedisTemplate;
 import put.poznan.tsdcache.TestcontainersConfiguration;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,9 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class TaskNo2Test {
 
     @Autowired
-    private RedisTemplate<String, Integer> authenticationRedisTemplate;
-
-    private final RedisBadLoginAttemptsStorage storage = new RedisBadLoginAttemptsStorage(authenticationRedisTemplate, 5);
+    private RedisBadLoginAttemptsStorage storage;
 
     @Test
     void contextLoads() {}

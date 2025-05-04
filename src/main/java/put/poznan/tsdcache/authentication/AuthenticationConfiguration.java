@@ -6,7 +6,7 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
 @Configuration
-class AuthenticationConfiguration {
+public class AuthenticationConfiguration {
 
     @Bean
     Authenticator authenticator(
@@ -25,7 +25,7 @@ class AuthenticationConfiguration {
     RedisBadLoginAttemptsStorage redisBadLoginAttemptsStorage(
             RedisTemplate<String, Integer> authenticationRedisTemplate
     ) {
-        return new RedisBadLoginAttemptsStorage(authenticationRedisTemplate, 300);
+        return new RedisBadLoginAttemptsStorage(authenticationRedisTemplate, 60);
     }
 
     @Bean
