@@ -31,7 +31,7 @@ class TaskNo1_1Test {
         String email = "test@test.com";
         String password = "password";
         when(badLoginAttemptsStorage.get(email)).thenReturn(0);
-        when(passwordChecker.check(email, password)).thenReturn(false);
+        when(passwordChecker.check(email, password)).thenReturn(true);
         //when
         sut.authenticate(email, password);
         //then
@@ -53,7 +53,7 @@ class TaskNo1_1Test {
         String email = "test@test.com";
         String password = "password";
         when(badLoginAttemptsStorage.get(email)).thenReturn(3);
-        when(passwordChecker.check(email, password)).thenReturn(false);
+        when(passwordChecker.check(email, password)).thenReturn(true);
         //when
         sut.authenticate(email, password);
         //then
